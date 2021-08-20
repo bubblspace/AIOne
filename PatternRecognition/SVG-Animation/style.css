@@ -1,0 +1,50 @@
+* {
+    margin :0;
+    padding:0;
+    box-sizing: border-box;  
+}
+
+body{
+    text-align: center;
+}
+
+text[name="credit"]{
+    text-align: center;
+    background-color: rgb(43, 226, 125);
+    color: rgb(0, 0, 0);
+}
+
+#wheel {
+animation: wheel 1s  infinite linear;
+transform-origin: center;
+transform-box: fill-box ;
+
+}
+
+
+
+
+#man{
+animation: man 1s ease;
+
+}
+
+@keyframes man{
+    from{
+      transform: rotate3d();
+    }
+    to{
+    transform: rotate();
+    }
+}
+
+@keyframes wheel {
+    from {
+        transform: rotateZ(0deg);
+
+    }
+
+    to {
+        transform: rotateZ(360deg);
+    }
+}
