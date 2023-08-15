@@ -1,5 +1,5 @@
 
-<img src="https://mybubblpublic.s3.ap-south-1.amazonaws.com/Templater_+YT+banner+Normal01.png" alt="bubblspace for your open AI agents" width="800"/>
+<img src="https://mybubblpublic.s3.ap-south-1.amazonaws.com/YTBanner_Zoom.png" alt="bubblspace for your open AI agents" width="800"/>
 
 # MLOne powered by bubblspace
 [bubblspace](https://bubblspace.com) Build customize Open AI Agents using bubblspace
