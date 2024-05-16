@@ -1,0 +1,53 @@
+{
+  "Instructions": "I want to create AI users to do A/B Testing for my blog",
+  "Context": {
+    "Context01": {
+      "SummaryTitle": "Summary of Chat Conversations",
+      "Summary": {
+        "conversation1": {
+          "title": "Queries on Earth's Diameter and Python Landing Page",
+          "summary": "Discussed the diameter of Earth and provided a Python code example for a landing page using Flask framework.",
+          "concepts": ["Earth's diameter", "Python code", "Flask framework"]
+        },
+        "conversation2": {
+          "title": "Creating Dummy Chat Data and Python Code Assistance",
+          "summary": "Assisted with creating dummy chat data and provided help with Python code. Also discussed continuing the chat and submitting on Enter key.",
+          "concepts": ["Dummy chat data", "Python code", "Chat continuation"]
+        }
+      }
+    },
+    "Context02": {
+      "additionalBlogExamples": "Popular blogs example"
+    }
+  },
+  "Task": {
+    "Task01": {
+      "description": "Create 5 Bubbl, Goal: Each bubbl is an AI user for which blog will be tested against create users based on different features such as Profile CV Experience Capstone Next Profile Topics NOrmal Course : Click Cat11 Grads: 3 AU001: Male ,: Basic AU002: Female : Basic Au003: Google Community Leader Students With knowledge of open source (open source contributors) : Advance Au001-Au002: Loking for entry level jobs , basic git knowledge and basic python / node js knowledge Weakness: Deployment of apps production, user testing , documentation , api Au003: Advance loking for job in big tech Weakness: AWS cloud computing CAt2. Experienced : Django , React DBA : 5 AI Users in total ( 3 Cat 1 and 2 in Cat2) Bubblids: [AU001 - AU 0005] or Task01: use existing AI users."
+    },
+    "Task02": {
+      "description": "Create Blog with following metrics , coverage , topics, code - explanation ratio , diagrams , links"
+    },
+    "Task03": {
+      "description": "A/B Testing against users",
+      "Bubblid": [
+        "AU002",
+        "AU004"
+      ]
+    },
+    "Task04": {
+      "description": "Scoring",
+      "scoring": [
+        {
+          "Bubblid": "AU002",
+          "blogs": 3,
+          "score": null
+        },
+        {
+          "Bubblid": "AU004",
+          "blogs": 1,
+          "score": null
+        }
+      ]
+    }
+  }
+}
