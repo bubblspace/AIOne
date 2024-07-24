@@ -1,3 +1,10 @@
+
+# Chats
+
+##  Question 01 
+
+Check the theta value ( rope ) for llama2, llama3 . do research and tell me 
+## Response 01
 Based on the research and the sources provided:
 
 Llama 2: The base period of the RoPE (Rotary Position Embedding) embeddings is set to 10,000.
