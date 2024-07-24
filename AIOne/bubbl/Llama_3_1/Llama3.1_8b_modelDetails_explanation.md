@@ -1,46 +1,42 @@
 # Llama 3.1 8B Instruct Model Architecture
 
-## Explanation
+
+
 
 
 ## Explanation
 
 ### 1. Embedding Layer
-- **transformer.wte.weight (torch.Size([50257, 768]))**
-  - Converts input tokens into dense vectors of size 768.
+- **model.embed_tokens.weight (torch.Size([128256, 4096]))**
+  - Converts input tokens into dense vectors of size 4096.
 
-### 2. Positional Encoding Layer
-- **transformer.wpe.weight (torch.Size([1024, 768]))**
-  - Adds positional information to the embeddings to make use of the order of the tokens.
-
-### 3. Transformer Blocks
+### 2. Transformer Blocks
 Each transformer block consists of several components:
 
-#### Transformer Block 1 to 12
-- **LayerNorm 1 (ln_1)**
-  - **Weight:** transformer.h.{i}.ln_1.weight (torch.Size([768]))
-  - **Bias:** transformer.h.{i}.ln_1.bias (torch.Size([768]))
-- **Self-Attention (attn)**
-  - **Query, Key, Value Linear Transformations (c_attn)**
-    - **Weight:** transformer.h.{i}.attn.c_attn.weight (torch.Size([768, 2304]))
-    - **Bias:** transformer.h.{i}.attn.c_attn.bias (torch.Size([2304]))
-  - **Output Linear Transformation (c_proj)**
-    - **Weight:** transformer.h.{i}.attn.c_proj.weight (torch.Size([768, 768]))
-    - **Bias:** transformer.h.{i}.attn.c_proj.bias (torch.Size([768]))
-- **LayerNorm 2 (ln_2)**
-  - **Weight:** transformer.h.{i}.ln_2.weight (torch.Size([768]))
-  - **Bias:** transformer.h.{i}.ln_2.bias (torch.Size([768]))
+#### Transformer Block 0 to 31
+- **Self-Attention (self_attn)**
+  - **Query Linear Transformation (q_proj)**
+    - **Weight:** model.layers.{i}.self_attn.q_proj.weight (torch.Size([4096, 4096]))
+  - **Key Linear Transformation (k_proj)**
+    - **Weight:** model.layers.{i}.self_attn.k_proj.weight (torch.Size([1024, 4096]))
+  - **Value Linear Transformation (v_proj)**
+    - **Weight:** model.layers.{i}.self_attn.v_proj.weight (torch.Size([1024, 4096]))
+  - **Output Linear Transformation (o_proj)**
+    - **Weight:** model.layers.{i}.self_attn.o_proj.weight (torch.Size([4096, 4096]))
 - **Feed-Forward Neural Network (MLP)**
-  - **Fully Connected Layer 1 (c_fc)**
-    - **Weight:** transformer.h.{i}.mlp.c_fc.weight (torch.Size([768, 3072]))
-    - **Bias:** transformer.h.{i}.mlp.c_fc.bias (torch.Size([3072]))
-  - **Fully Connected Layer 2 (c_proj)**
-    - **Weight:** transformer.h.{i}.mlp.c_proj.weight (torch.Size([3072, 768]))
-    - **Bias:** transformer.h.{i}.mlp.c_proj.bias (torch.Size([768]))
+  - **Gate Projection (gate_proj)**
+    - **Weight:** model.layers.{i}.mlp.gate_proj.weight (torch.Size([14336, 4096]))
+  - **Up Projection (up_proj)**
+    - **Weight:** model.layers.{i}.mlp.up_proj.weight (torch.Size([14336, 4096]))
+  - **Down Projection (down_proj)**
+    - **Weight:** model.layers.{i}.mlp.down_proj.weight (torch.Size([4096, 14336]))
+- **LayerNorm 1 (input_layernorm)**
+  - **Weight:** model.layers.{i}.input_layernorm.weight (torch.Size([4096]))
+- **LayerNorm 2 (post_attention_layernorm)**
+  - **Weight:** model.layers.{i}.post_attention_layernorm.weight (torch.Size([4096]))
 
-### 4. Layer Normalization (Final)
-- **transformer.ln_f.weight (torch.Size([768]))**
-- **transformer.ln_f.bias (torch.Size([768]))**
+### 3. Layer Normalization (Final)
+- **model.norm.weight (torch.Size([4096]))**
 
-### 5. Output Linear Layer (lm_head)
-- **lm_head.weight (torch.Size([50257, 768]))**
+### 4. Output Linear Layer (lm_head)
+- **lm_head.weight (torch.Size([128256, 4096]))**
