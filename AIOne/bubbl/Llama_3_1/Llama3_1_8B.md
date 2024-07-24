@@ -1,0 +1,1 @@
+# 8B new 3.1  model released by meta , working with bubbls
